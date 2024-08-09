@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useOutletContext} from "react-router-dom"
 
 function Login() {
+  const login= useOutletContext ();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -15,7 +17,8 @@ function Login() {
 
   function handleLogin(e) {
     e.preventDefault();
-  }
+    login();
+  };
 
   return (
     <form onSubmit={handleLogin}>
